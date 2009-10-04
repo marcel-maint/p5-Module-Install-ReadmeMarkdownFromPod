@@ -68,12 +68,12 @@ Does nothing on the user-side. On the author-side it will generate a
 C<README.mkdn> file using L<Pod::Markdown> from the POD in the file passed as
 a parameter.
 
-  readme_markdown_from 'lib/Some/Module.pm';
+    readme_markdown_from 'lib/Some/Module.pm';
 
 If a second parameter is set to a true value then the C<README.mkdn> will be
 removed at C<make distclean>.
 
-  readme_markdown_from 'lib/Some/Module.pm' => 'clean';
+    readme_markdown_from 'lib/Some/Module.pm' => 'clean';
 
 =back
 
