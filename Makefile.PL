@@ -3,6 +3,7 @@ include 'Module::AutoInstall';
 
 name 'Module-Install-ReadmeMarkdownFromPod';
 all_from 'lib/Module/Install/ReadmeMarkdownFromPod.pm';
+readme_from 'lib/Module/Install/ReadmeMarkdownFromPod.pm';
 
 auto_set_homepage;
 auto_set_bugtracker;

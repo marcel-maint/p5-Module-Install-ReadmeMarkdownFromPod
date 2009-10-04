@@ -1,28 +1,65 @@
-This is the Perl distribution Module-Install-ReadmeMarkdownFromPod.
+NAME
+    Module::Install::ReadmeMarkdownFromPod - create README.mkdn from POD
 
-## Installation
+SYNOPSIS
+        # in Makefile.PL
+        use inc::Module::Install;
+        name 'Foo-Bar';
+        readme_markdown_from 'lib/Foo/Bar.pm';
 
-Module-Install-ReadmeMarkdownFromPod installation is straightforward. If your
-CPAN shell is set up, you should just be able to do
+DESCRIPTION
+    Module::Install::ReadmeMarkdownFromPod is a Module::Install extension
+    that generates a "README.mkdn" file automatically from an indicated file
+    containing POD whenever the author runs "Makefile.PL". This file is used
+    by GitHub to display nicely formatted information about a repository.
 
-    % cpan Module::Install::ReadmeMarkdownFromPod
+FUNCTIONS
+    "readme_markdown_from"
+        Does nothing on the user-side. On the author-side it will generate a
+        "README.mkdn" file using Pod::Markdown from the POD in the file
+        passed as a parameter.
 
-Download it, unpack it, then build it as per the usual:
+          readme_markdown_from 'lib/Some/Module.pm';
 
-    % perl Makefile.PL
-    % make && make test
+        If a second parameter is set to a true value then the "README.mkdn"
+        will be removed at "make distclean".
 
-Then install it:
+          readme_markdown_from 'lib/Some/Module.pm' => 'clean';
 
-    % make install
+BUGS AND LIMITATIONS
+    No bugs have been reported.
 
-## Documentation
+    Please report any bugs or feature requests through the web interface at
+    <http://rt.cpan.org>.
 
-Module-Install-ReadmeMarkdownFromPod documentation is available as in POD. So
-you can do:
+INSTALLATION
+    See perlmodinstall for information and options on installing Perl
+    modules.
 
-    % perldoc Module::Install::ReadmeMarkdownFromPod
+AVAILABILITY
+    The latest version of this module is available from the Comprehensive
+    Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
+    CPAN site near you. Or see
+    <http://search.cpan.org/dist/Module-Install-ReadmeMarkdownFromPod/>.
 
-to read the documentation online with your favorite pager.
+    The development version lives at
+    <http://github.com/hanekomu/module-install-readmemarkdownfrompod/>.
+    Instead of sending patches, please fork this project using the standard
+    git and github infrastructure.
 
-Marcel Gruenauer
+AUTHORS
+    Marcel Grünauer, "<marcel@cpan.org>"
+
+COPYRIGHT AND LICENSE
+    Copyright 2009 by Marcel Grünauer
+
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
+SEE ALSO
+    Pod::Markdown
+
+    Module::Install
+
+    Module::Install::ReadmeFromPod
+
