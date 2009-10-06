@@ -1,4 +1,8 @@
 Revision history for Perl extension Module-Install-ReadmeMarkdownFromPod
 
+0.02  Tue 2009.10.06 14:01:10 CEST (Marcel Gruenauer <marcel@cpan.org>)
+     - added reference_module()
+     - more documentation
+
 0.01  2009-10-04T12:09:30Z (Marcel Gruenauer <marcel@cpan.org>)
      - original version

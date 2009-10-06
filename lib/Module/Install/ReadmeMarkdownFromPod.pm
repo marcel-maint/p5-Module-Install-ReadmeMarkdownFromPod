@@ -5,15 +5,14 @@ use strict;
 use warnings;
 use Pod::Markdown;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use base qw(Module::Install::Base);
 
 sub readme_markdown_from {
-    my $self = shift;
+    my ($self, $file, $clean) = @_;
     return unless $Module::Install::AUTHOR;
-    my $file = shift || return;
-    my $clean = shift;
+    die "syntax: readme_markdown_from $file, [$clean]\n" unless $file;
 
     my $parser = Pod::Markdown->new;
     $parser->parse_from_file($file);
@@ -29,6 +28,14 @@ license_clean:
 \t\$(RM_F) README.mkdn
 END
     1;
+}
+
+sub reference_module {
+    my ($self, $file) = @_;
+    die "syntax: reference_module $file\n" unless $file;
+    $self->all_from($file);
+    $self->readme_from($file);
+    $self->readme_markdown_from($file);
 }
 
 1;
@@ -48,8 +55,8 @@ Module::Install::ReadmeMarkdownFromPod - create README.mkdn from POD
 
     # in Makefile.PL
     use inc::Module::Install;
-    name 'Foo-Bar';
-    readme_markdown_from 'lib/Foo/Bar.pm';
+    name 'Some-Module';
+    readme_markdown_from 'lib/Some/Module.pm';
 
 =head1 DESCRIPTION
 
@@ -74,6 +81,23 @@ If a second parameter is set to a true value then the C<README.mkdn> will be
 removed at C<make distclean>.
 
     readme_markdown_from 'lib/Some/Module.pm' => 'clean';
+
+It will die unless a filename is given.
+
+=item C<reference_module>
+
+A utility function that saves you from repeatedly naming a reference module
+from which to extract information.
+
+    reference_module 'lib/Some/Module.pm';
+
+is equivalent to:
+
+    all_from 'lib/Some/Module.pm';
+    readme_from 'lib/Some/Module.pm';
+    readme_markdown_from 'lib/Some/Module.pm';
+
+It will die unless a filename is given.
 
 =back
 
