@@ -2,7 +2,9 @@ use inc::Module::Install;
 include 'Module::AutoInstall';
 
 name 'Module-Install-ReadmeMarkdownFromPod';
-reference_module 'lib/Module/Install/ReadmeMarkdownFromPod.pm';
+all_from 'lib/Module/Install/ReadmeMarkdownFromPod.pm';
+readme_from 'lib/Module/Install/ReadmeMarkdownFromPod.pm';
+readme_markdown_from 'lib/Module/Install/ReadmeMarkdownFromPod.pm';
 
 auto_set_homepage;
 auto_set_bugtracker;

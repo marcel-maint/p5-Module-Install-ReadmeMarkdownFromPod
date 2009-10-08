@@ -100,7 +100,9 @@ is equivalent to:
     readme_from 'lib/Some/Module.pm';
     readme_markdown_from 'lib/Some/Module.pm';
 
-It will die unless a file name is given.
+It will die unless a file name is given. Note that C<reference_module> will
+not work with L<Shipit::Step::FindVersion> because that module is looking for
+a C<version_from> or C<all_from> string in C<Makefile.PL>
 
 =back
 

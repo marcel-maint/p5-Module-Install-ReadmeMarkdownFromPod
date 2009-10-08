@@ -46,7 +46,9 @@ is equivalent to:
     readme_from 'lib/Some/Module.pm';
     readme_markdown_from 'lib/Some/Module.pm';
 
-It will die unless a file name is given.
+It will die unless a file name is given. Note that `reference_module` will
+not work with [Shipit::Step::FindVersion](http://search.cpan.org/search?mode=module&query=Shipit::Step::FindVersion) because that module is looking for
+a `version_from` or `all_from` string in `Makefile.PL`
 
 # BUGS AND LIMITATIONS
 
