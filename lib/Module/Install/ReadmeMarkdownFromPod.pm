@@ -3,7 +3,6 @@ package Module::Install::ReadmeMarkdownFromPod;
 use 5.006;
 use strict;
 use warnings;
-use Pod::Markdown;
 
 our $VERSION = '0.02';
 
@@ -13,6 +12,10 @@ sub readme_markdown_from {
     my ($self, $file, $clean) = @_;
     return unless $Module::Install::AUTHOR;
     die "syntax: readme_markdown_from $file, [$clean]\n" unless $file;
+
+    # require, not use because otherwise Makefile.PL will complain if
+    # non-authors don't have Pod::Markdown, which would be bad.
+    require Pod::Markdown;
 
     my $parser = Pod::Markdown->new;
     $parser->parse_from_file($file);
@@ -82,7 +85,7 @@ removed at C<make distclean>.
 
     readme_markdown_from 'lib/Some/Module.pm' => 'clean';
 
-It will die unless a filename is given.
+It will die unless a file name is given.
 
 =item C<reference_module>
 
@@ -97,7 +100,7 @@ is equivalent to:
     readme_from 'lib/Some/Module.pm';
     readme_markdown_from 'lib/Some/Module.pm';
 
-It will die unless a filename is given.
+It will die unless a file name is given.
 
 =back
 

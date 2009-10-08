@@ -31,7 +31,7 @@ removed at `make distclean`.
 
     readme_markdown_from 'lib/Some/Module.pm' => 'clean';
 
-It will die unless a filename is given.
+It will die unless a file name is given.
 
 - `reference_module`
 
@@ -46,7 +46,7 @@ is equivalent to:
     readme_from 'lib/Some/Module.pm';
     readme_markdown_from 'lib/Some/Module.pm';
 
-It will die unless a filename is given.
+It will die unless a file name is given.
 
 # BUGS AND LIMITATIONS
 

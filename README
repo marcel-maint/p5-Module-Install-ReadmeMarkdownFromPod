@@ -26,7 +26,7 @@ FUNCTIONS
 
             readme_markdown_from 'lib/Some/Module.pm' => 'clean';
 
-        It will die unless a filename is given.
+        It will die unless a file name is given.
 
     "reference_module"
         A utility function that saves you from repeatedly naming a reference
@@ -40,7 +40,7 @@ FUNCTIONS
             readme_from 'lib/Some/Module.pm';
             readme_markdown_from 'lib/Some/Module.pm';
 
-        It will die unless a filename is given.
+        It will die unless a file name is given.
 
 BUGS AND LIMITATIONS
     No bugs have been reported.
