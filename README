@@ -28,6 +28,23 @@ FUNCTIONS
 
         It will die unless a file name is given.
 
+    "readme_markdown_from_pod"
+        Like "readme_markdown_from" but assumes that "all_from" has been
+        called before and uses the filename stored there to generate the
+        "README.mkdn". It then calls "readme_markdown_from" with that
+        filename. If this function is given an optional boolean parameter,
+        that will be passed to "readme_markdown_from" as well, indicating
+        whether to clean up the generated "README.mkdn" file at "make
+        distclean" time.
+
+    "readme_from_pod"
+        Like "readme_markdown_from_pod", but affects the plain-text "README"
+        file generation done in Module::Install::ReadmeFromPod. This
+        function would be better placed in that module and might move there
+        eventually. It is given here as a convenience because if you want to
+        generate both "README" and "README.mkdn" you can do this here
+        without repeating the filename given in "all_from".
+
     "reference_module"
         A utility function that saves you from repeatedly naming a reference
         module from which to extract information.
