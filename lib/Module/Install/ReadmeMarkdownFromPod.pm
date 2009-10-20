@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use base qw(Module::Install::Base);
 
@@ -16,6 +16,7 @@ sub readme_markdown_from {
     # require, not use because otherwise Makefile.PL will complain if
     # non-authors don't have Pod::Markdown, which would be bad.
     require Pod::Markdown;
+    $self->admin->copy_package('Pod::Markdown', $INC{'Pod/Markdown.pm'});
 
     my $parser = Pod::Markdown->new;
     $parser->parse_from_file($file);
